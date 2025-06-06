@@ -14,13 +14,13 @@
     body {
       background-color: #ffffff;
       font-family: 'Inter', sans-serif;
-      color: #374151; /* Gray-700 */
+      color: #374151; 
     }
     .text-primary {
       font-weight: 700;
-      font-size: 2.75rem; /* ~44px */
+      font-size: 2.75rem; 
       line-height: 1.1;
-      color: #111827; /* Gray-900 */
+      color: #111827; 
     }
     .container {
       max-width: 1200px;
@@ -38,7 +38,7 @@
 
     const { useState, useEffect, useRef } = React;
 
-    // API base URL
+    // Base api URL
     const API_BASE = "http://localhost:4000/api";
 
     // Status options
@@ -48,7 +48,7 @@
       { value: 'completed', label: 'Completed' },
     ];
 
-    // Format date string
+    // Format date string methos
     function formatDate(dateStr) {
       if (!dateStr) return "—";
       const d = new Date(dateStr);
@@ -56,7 +56,7 @@
       return d.toLocaleDateString();
     }
 
-    // Header component
+    // THis is Header component
     function Header() {
       return (
         <header className="sticky top-0 bg-white shadow-sm z-10">
@@ -141,7 +141,7 @@
       );
     }
 
-    // Add Task Form
+    // Add Task vuntions Form
     function AddTaskForm({ projectId, onTaskAdded, onCancel }) {
       const [title, setTitle] = useState('');
       const [description, setDescription] = useState('');
@@ -455,18 +455,18 @@
         fetchProjects();
       }, []);
 
-      // When new project created
+      // This is functions is used for When new project is created
       function handleProjectCreated(newProject) {
         setProjects(prev => [newProject, ...prev]);
         window.scrollTo({ top: 0, behavior: "smooth" });
       }
 
-      // Update project after task change
+      // In this Functions is used to Update project after task change
       function handleProjectUpdated(updatedProject) {
         setProjects(prev => prev.map(p => p._id === updatedProject._id ? updatedProject : p));
       }
 
-      // Remove deleted project
+      // This functions is used for removed project
       function handleProjectDeleted(deletedProjectId) {
         setProjects(prev => prev.filter(p => p._id !== deletedProjectId));
       }
